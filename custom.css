@@ -1,0 +1,1186 @@
+/* ============================================================
+   l3xj JELLYFIN CUSTOM THEME — AMBER
+   Standalone  |  Font: Space Grotesk
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+
+/* ======================== */
+/*   ROOT VARIABLES         */
+/* ======================== */
+
+:root {
+    /* Core amber palette */
+    --amber: #E8920D;
+    --amber-bright: #FF9900;
+    --amber-deep: #D84315;
+    --amber-dim: rgba(232, 146, 13, 0.15);
+    --amber-glow: rgba(232, 146, 13, 0.25);
+    --amber-faint: rgba(232, 146, 13, 0.08);
+
+    /* Base background */
+    --bg-color: rgb(24, 24, 24);
+
+    /* Sticky tabs offset */
+    --l3xj-header-height: 64px;
+    --l3xj-tabs-top: calc(var(--l3xj-header-height) + 8px);
+}
+
+
+/* ======================== */
+/*   CUSTOM FONT            */
+/* ======================== */
+
+html, body, button, input, select, textarea {
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: inherit !important;
+}
+
+.emby-tab-button {
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: large;
+}
+
+.navMenuOptionText {
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: medium !important;
+}
+
+.cardText, .cardText-primary, .cardText-secondary,
+h1, h2, h3, .sectionTitle,
+.itemName, .itemDetailPageTitle,
+.formDialogHeaderTitle {
+    font-family: "Space Grotesk", sans-serif !important;
+}
+
+
+/* ======================== */
+/*   BASE THEME OVERRIDES   */
+/* ======================== */
+
+/* Surfaces — override Jellyfin's default #202020/#101010 to match --bg-color */
+.backgroundContainer,
+.dialog,
+.nowPlayingContextMenu,
+.nowPlayingPlaylist,
+.paperList,
+.collapseContent,
+.formDialogFooter:not(.formDialogFooter-clear),
+.drawer-open,
+.mainDrawer {
+    background-color: var(--bg-color) !important;
+}
+
+.backgroundContainer.withBackdrop {
+    background-color: rgba(0, 0, 0, 0.86) !important;
+}
+
+/* Inputs & selects base styling */
+.emby-input,
+.emby-textarea {
+    background: rgba(40, 40, 40, 1);
+    border: 0.16em solid rgba(40, 40, 40, 1);
+    border-radius: 0.3em;
+    color: inherit;
+}
+
+.emby-select-withcolor {
+    background: rgba(40, 40, 40, 1);
+    border: 0.07em solid rgba(40, 40, 40, 1);
+    color: inherit;
+}
+
+.emby-select-withcolor > option {
+    background: rgb(30, 30, 30);
+    color: inherit;
+}
+
+/* Detail ribbon — transparent like H-Tv */
+.detailRibbon {
+    background: transparent !important;
+}
+
+/* App footer / now-playing bar */
+.appfooter,
+.playlistSectionButton {
+    background: var(--bg-color);
+    color: rgba(255, 255, 255, 0.78);
+}
+
+/* Raised / fab buttons */
+.fab, .raised {
+    background: rgb(48, 48, 48);
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.fab:focus, .raised:focus {
+    background: rgb(56, 56, 56);
+}
+
+/* Action sheets / dropdowns / dialogs — rounded glass */
+.actionSheet {
+    border-radius: 16px !important;
+    background: rgba(18, 18, 18, 0.85) !important;
+    backdrop-filter: blur(20px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5) !important;
+    overflow: hidden !important;
+}
+
+.actionSheetContent {
+    background: transparent !important;
+}
+
+.actionSheetTitle {
+    color: var(--amber) !important;
+    font-weight: 700;
+    padding: 0.8em 1em 0.4em;
+}
+
+.actionSheetMenuItem {
+    border-radius: 10px !important;
+    margin: 2px 6px !important;
+    transition: background 0.15s ease;
+}
+
+.actionSheetMenuItem:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Dialog / popup panels */
+.dialog {
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5) !important;
+    overflow: hidden !important;
+}
+
+/* Action sheet divider */
+.actionsheetDivider {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+/* List items */
+.listItem-border {
+    border-color: rgba(34, 34, 34, 0.9) !important;
+}
+
+.listItem:focus {
+    background: rgb(51, 51, 51);
+}
+
+.listItem:hover {
+    background: rgb(36, 36, 36);
+}
+
+/* Media info badge */
+.mediaInfoText {
+    background: rgba(170, 170, 190, 0.2);
+    color: #ddd;
+}
+
+/* Alpha picker */
+.alphaPickerButton {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.alphaPickerButton-selected {
+    color: #fff;
+}
+
+
+/* ======================== */
+/*   ACCENT COLOR OVERRIDE  */
+/* ======================== */
+
+.emby-checkbox:checked + span + .checkboxOutline,
+.emby-select-withcolor,
+.emby-toggle input:checked + .emby-toggle-track,
+.itemProgressBarForeground,
+.countIndicator,
+.playedIndicator,
+.mediaInfoOfficialRating {
+    background-color: var(--amber) !important;
+}
+
+.button-submit,
+.emby-button-focusscale:focus {
+    background-color: var(--amber) !important;
+    color: #000 !important;
+}
+
+.button-submit:hover {
+    background-color: var(--amber-bright) !important;
+}
+
+.button-delete {
+    background: #cb272a;
+    color: #fff;
+}
+
+
+/* ======================== */
+/*   ACTIVE TABS & LINKS    */
+/* ======================== */
+
+/* Tab buttons — match H-Tv: only color, nothing else */
+.emby-tabs-slider .emby-tab-button {
+    color: rgba(255, 255, 255, 0.75);
+    transition: color 0.2s ease;
+}
+
+.emby-tab-button-active {
+    color: var(--amber) !important;
+}
+
+.emby-tab-button:hover {
+    color: var(--amber-bright) !important;
+}
+
+a:hover,
+a:focus,
+.itemAction.textActionButton:hover {
+    color: var(--amber-bright) !important;
+}
+
+.navMenuOption:hover,
+.navMenuOption.selectedNavMenuOption {
+    background-color: var(--amber-faint) !important;
+    color: var(--amber) !important;
+}
+
+.sectionTitleTextButton:hover .sectionTitle {
+    color: var(--amber-bright) !important;
+}
+
+
+/* ======================================== */
+/*   1. FLOATING PILL HEADER ON SCROLL      */
+/* ======================================== */
+
+/* Base state: full-width transparent at top */
+.skinHeader {
+    width: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    contain: none !important;
+    transition:
+        width 0.3s ease,
+        margin 0.3s ease,
+        padding 0.3s ease,
+        border-radius 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        backdrop-filter 0.3s ease !important;
+}
+
+/* Scrolled state: glassmorphism pill (H-Tv style) */
+body:not(:has(.videoPlayerContainer:not(.hide))):not(:has(.htmlvideoplayer:not(.hide))) .skinHeader.l3xj-pill-active {
+    width: 98% !important;
+    margin: 7px auto !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
+    border-radius: 50px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow:
+        2px 2px 2px -3px rgba(255, 255, 255, 0.65) inset,
+        -2px -2px 2px -3px rgba(255, 255, 255, 0.55) inset,
+        0 0 20px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(18, 18, 18, 0.55) !important;
+    backdrop-filter: blur(16px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+}
+
+/* Hide the top gradient when pill is active — pill handles its own bg */
+body:not(:has(.videoPlayerContainer:not(.hide))):not(:has(.htmlvideoplayer:not(.hide))) .skinHeader.l3xj-pill-active::before {
+    display: none !important;
+}
+
+/* Fix clickability inside pill */
+.headerTop, .headerTabs, .emby-tabs-slider {
+    overflow: visible !important;
+}
+
+.emby-tab-button {
+    pointer-events: auto !important;
+}
+
+/* Pointer events: let clicks pass through the header gap */
+.skinHeader {
+    pointer-events: none;
+}
+.skinHeader > * {
+    pointer-events: auto;
+}
+
+/* Tab button styling */
+.emby-tabs-slider .emby-tab-button {
+    color: rgba(255, 255, 255, 0.75);
+    transition: color 0.2s ease;
+}
+
+
+/* Transparent header internals — kill backgrounds/borders only */
+.headerTabs,
+.headerTabs.sectionTabs,
+.sectionTabs,
+.tabs-viewmenubar,
+.emby-tabs-slider {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Override Jellyfin base theme's #202020 background on the header */
+.skinHeader.skinHeader-withBackground {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Top gradient for header readability (non-scrolled state) */
+.skinHeader::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: -60px !important;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.45) 40%,
+        rgba(0, 0, 0, 0.15) 70%,
+        transparent 100%
+    ) !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+
+/* ======================================== */
+/*   2. CARD HOVER LIFT + IMAGE ZOOM        */
+/* ======================================== */
+
+.cardBox {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    transition:
+        background 0.15s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease-in-out !important;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Lift on hover + amber glow */
+.card:hover .cardBox {
+    transform: translateY(-4px) !important;
+    border-color: rgba(232, 146, 13, 0.4) !important;
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35),
+        0 0 12px rgba(232, 146, 13, 0.15) !important;
+}
+
+.card:active .cardBox {
+    transform: translateY(-7px) !important;
+}
+
+/* Rounded top only — flat bottom for card text area */
+.cardScalable {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ::after — image zoom layer */
+.cardImageContainer::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: inherit !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    transform: none !important;
+    transition: transform 0.18s ease !important;
+    z-index: -1 !important;
+}
+
+/* ::before — blur layer behind zoom */
+.cardImageContainer::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: -10px !important;
+    background: inherit !important;
+    z-index: -2 !important;
+    opacity: 0 !important;
+    filter: none !important;
+    transition: opacity 0.18s ease !important;
+}
+
+/* Desktop: enable zoom + blur on hover */
+@media (hover: hover) and (pointer: fine) {
+    .cardImageContainer::after {
+        background-size: cover !important;
+    }
+    .card:hover .cardImageContainer::after {
+        transform: scale(1.08) !important;
+    }
+    .card:hover .cardImageContainer::before {
+        opacity: 1 !important;
+        filter: blur(10px) brightness(50%) !important;
+    }
+}
+
+/* Touch / mobile: disable transform effects */
+@media (hover: none), (pointer: coarse), (max-width: 1068px) {
+    .cardImageContainer::after {
+        background-size: contain !important;
+        transform: none !important;
+    }
+    .card:hover .cardImageContainer::after {
+        transform: none !important;
+    }
+    .cardImageContainer::before {
+        opacity: 0 !important;
+        filter: none !important;
+    }
+}
+
+/* Hover text highlight */
+.card:hover .cardText .itemAction {
+    color: var(--amber) !important;
+}
+
+.cardOverlayFab-primary {
+    background-color: var(--amber) !important;
+    color: #000 !important;
+}
+
+.cardOverlayFab-primary:hover {
+    background-color: var(--amber-bright) !important;
+}
+
+.cardOverlayButton-hover:hover {
+    color: var(--amber) !important;
+}
+
+.cardImageContainer.defaultCardBackground {
+    background: transparent;
+}
+
+.cardText {
+    padding: 0.6em 0.75em 0.8em;
+}
+
+.cardText-primary {
+    font-weight: 600;
+    font-size: 0.95em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardText-secondary {
+    display: none;
+}
+
+/* Reduce excessive bottom padding on cards */
+.cardBox-bottompadded {
+    padding-bottom: 0.3em !important;
+}
+
+/* Tighten vertical section spacing */
+.card, .cardBox, .cardContent {
+    margin-bottom: 0 !important;
+}
+
+.verticalSection {
+    margin-bottom: 0.5em !important;
+    padding-bottom: 0 !important;
+}
+
+.verticalSection-extrabottompadding {
+    margin-bottom: 0.8em !important;
+}
+
+
+/* ======================================== */
+/*   3. DETAIL PAGE LAYOUT                  */
+/* ======================================== */
+
+/* Base background — solid fallback */
+html {
+    background-color: var(--bg-color) !important;
+}
+
+/* On detail pages, let backdrop show through */
+html:has(.itemDetailPage:not(.hide)),
+html:has(.detailsPage:not(.hide)) {
+    background-color: transparent !important;
+}
+
+/* Hide backdrop when video is playing */
+body:has(.videoPlayerContainer) .backgroundContainer,
+body:has(video) .backgroundContainer,
+body:has(.htmlvideoplayer) .backgroundContainer {
+    display: none !important;
+}
+
+/* Ensure backdrop is fixed and static */
+#reactRoot:not(:has(.skinHeader.semiTransparent)) > .backdropContainer {
+    height: 100vh;
+    left: 0;
+    position: fixed !important;
+    width: 100vw;
+}
+
+#reactRoot:not(:has(.skinHeader.semiTransparent)) > .backdropContainer > .backdropImage {
+    background-attachment: fixed !important;
+}
+
+/* --- Desktop detail layout --- */
+
+/* Backdrop pushed right with gradient fade on the left (H-Tv style) */
+.layout-desktop .backgroundContainer {
+    background-color: transparent !important;
+    background:
+        linear-gradient(90deg, var(--bg-color) 10%, transparent 55%),
+        linear-gradient(0deg, var(--bg-color) 5%, transparent 40%) !important;
+    background-size: cover !important;
+    height: 100vh;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+/* Wrapper uses flex, natural height */
+.layout-desktop .detailPageWrapperContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 60vh;
+}
+
+/* Primary container — content on the left */
+.detailPagePrimaryContainer {
+    position: relative;
+    z-index: 2;
+}
+
+.noBackdropTransparency .detailPagePrimaryContainer,
+.noBackdropTransparency .detailPageSecondaryContainer {
+    background-color: transparent;
+}
+
+.layout-desktop .detailPageSecondaryContainer {
+    flex-grow: 1;
+    background-color: transparent;
+}
+
+/* Left-aligned content layout (H-Tv style) */
+.layout-desktop .detailPagePrimaryContainer {
+    display: inline-table !important;
+    position: relative !important;
+    left: 5% !important;
+    padding-left: 5% !important;
+}
+
+.layout-desktop .detailPageContent {
+    padding-left: 5% !important;
+    position: relative !important;
+    left: 0 !important;
+}
+
+.layout-desktop .detailPageContent .infoWrapper {
+    position: relative !important;
+    left: 0 !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.layout-desktop .detailPagePrimaryContent {
+    padding-left: 0 !important;
+    padding-right: 2% !important;
+    width: 95% !important;
+}
+
+.layout-desktop .infoWrapper,
+.layout-desktop .mainDetailButtons {
+    padding-left: 0 !important;
+    max-width: 45% !important;
+}
+
+/* Detail ribbon — H-Tv uses display:contents so children flow into parent */
+.detailRibbon {
+    background: transparent !important;
+}
+
+.layout-desktop [dir=ltr] .detailRibbon,
+.layout-tv [dir=ltr] .detailRibbon {
+    display: contents !important;
+    padding-left: 0 !important;
+    background: transparent !important;
+}
+
+/* Hide poster card and tags on desktop */
+.layout-desktop .detailImageContainer .card,
+.layout-desktop .itemTags,
+.layout-desktop .itemName.originalTitle,
+.layout-desktop .detailLogo {
+    display: none;
+}
+
+/* Expand button */
+.layout-desktop a.overview-expand.emby-button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Item title: large, bold */
+.itemDetailPageTitle,
+.nameContainer h1,
+h1.itemName {
+    font-size: clamp(2.2rem, 5.5vw, 4.8rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.04 !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Detail page buttons — styled play button like H-Tv */
+.layout-desktop .mainDetailButtons {
+    display: flex !important;
+    align-items: center !important;
+    margin-top: 1.5em;
+}
+
+/* Actor card layout for cast/person pages */
+html body:has([data-type="Person"]) .layout-desktop .detailImageContainer .card,
+html body .detailImageContainer .card:has(.cardImageIcon.person) {
+    display: block !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 300px !important;
+    max-width: 30vw !important;
+    border-radius: 12px !important;
+    margin-right: 2rem !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+html body:has([data-type="Person"]) .layout-desktop .detailPagePrimaryContainer {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    position: relative !important;
+    margin-top: 5vh !important;
+    padding-left: 5vw !important;
+    background: transparent !important;
+}
+
+html body:has([data-type="Person"]) .layout-desktop .detailPagePrimaryContent {
+    width: auto !important;
+    flex: 1 !important;
+    padding-left: 0 !important;
+}
+
+/* --- Mobile detail layout --- */
+
+.layout-mobile .detailPagePrimaryContainer {
+    display: block !important;
+    position: relative !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    background-color: var(--bg-color) !important;
+}
+
+.layout-mobile .detailPageContent,
+.layout-mobile [dir=ltr] .infoWrapper,
+.layout-mobile .mainDetailButtons {
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.layout-mobile .detailRibbon {
+    display: block !important;
+    padding: 0.5rem 5% !important;
+    position: relative !important;
+}
+
+.layout-mobile .trackSelections,
+.layout-mobile .itemDetailsGroup,
+.layout-mobile .detailPageSecondaryContainer {
+    width: 100% !important;
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+    margin: 0 !important;
+    right: 0 !important;
+    position: static !important;
+    box-sizing: border-box !important;
+}
+
+.layout-mobile .detailImageContainer .card {
+    display: none;
+}
+
+
+/* ======================================== */
+/*   4. WALLPAPER BACKGROUND (H-Tv style)   */
+/* ======================================== */
+
+/* Transparent body on home screen so wallpaper shows through.
+   Detail pages restore solid bg below. */
+body:not(:has(.itemDetailPage:not(.hide))):not(:has(.detailsPage:not(.hide))),
+body:not(:has(.itemDetailPage:not(.hide))):not(:has(.detailsPage:not(.hide))) #reactRoot {
+    background-color: transparent !important;
+}
+
+/* Restore solid bg on detail pages */
+body:has(.itemDetailPage:not(.hide)),
+body:has(.detailsPage:not(.hide)),
+body:has(.itemDetailPage:not(.hide)) #reactRoot,
+body:has(.detailsPage:not(.hide)) #reactRoot {
+    background-color: var(--bg-color) !important;
+}
+
+/* Noise texture for wallpaper grain */
+svg.l3xj-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -998;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+}
+
+/* Atmospheric amber wallpaper — visible on home screen only */
+body:not(:has(#loginPage:not(.hide))):not(:has(.itemDetailPage:not(.hide))):not(:has(.detailsPage:not(.hide)))::before {
+    content: '';
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 120vh !important;
+    background:
+        /* Vignette — tighter, darker edges */
+        radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(0, 0, 0, 0.6) 100%),
+        /* Golden highlight — upper left */
+        radial-gradient(ellipse at 20% 10%, rgba(255, 193, 37, 0.3) 0%, transparent 45%),
+        /* Rich amber bloom — left center */
+        radial-gradient(ellipse at 25% 40%, rgba(232, 146, 13, 0.35) 0%, transparent 50%),
+        /* Burnt sienna — center right */
+        radial-gradient(ellipse at 75% 35%, rgba(160, 60, 10, 0.3) 0%, transparent 45%),
+        /* Deep burgundy undertone — lower right */
+        radial-gradient(ellipse at 80% 75%, rgba(120, 30, 30, 0.2) 0%, transparent 45%),
+        /* Warm orange haze — lower center */
+        radial-gradient(ellipse at 50% 85%, rgba(220, 120, 20, 0.25) 0%, transparent 50%),
+        /* Golden accent — upper right */
+        radial-gradient(ellipse at 85% 15%, rgba(200, 160, 40, 0.2) 0%, transparent 40%),
+        /* Subtle copper fill — lower left */
+        radial-gradient(ellipse at 10% 70%, rgba(180, 100, 50, 0.2) 0%, transparent 50%),
+        /* Base gradient — richer warm tones */
+        linear-gradient(
+            150deg,
+            hsl(20, 25%, 8%) 0%,
+            hsl(25, 20%, 13%) 20%,
+            hsl(30, 18%, 15%) 40%,
+            hsl(22, 15%, 12%) 60%,
+            hsl(15, 20%, 9%) 80%,
+            hsl(10, 15%, 7%) 100%
+        );
+    background-size: cover !important;
+    background-position: center center !important;
+    z-index: -999 !important;
+    pointer-events: none !important;
+}
+
+/* Hide default containers & native rotating backdrops on home screen */
+body:not(:has(.itemDetailPage:not(.hide))):not(:has(.detailsPage:not(.hide))) .backgroundContainer,
+body:not(:has(.itemDetailPage:not(.hide))):not(:has(.detailsPage:not(.hide))) .backgroundContainer.withBackdrop,
+body:not(:has(.itemDetailPage:not(.hide))):not(:has(.detailsPage:not(.hide))) > #reactRoot > .backdropContainer {
+    display: none !important;
+}
+
+
+/* ======================================== */
+/*   5. STICKY CONTENT TABS                 */
+/* ======================================== */
+
+.l3xj-sticky-tabs {
+    position: sticky !important;
+    top: var(--l3xj-tabs-top) !important;
+    z-index: 999 !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Kill backgrounds on ALL tab container layers */
+.l3xj-sticky-tabs .emby-tabs,
+.l3xj-sticky-tabs .tabs-viewmenubar,
+.l3xj-sticky-tabs .emby-tabs-slider {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Desktop: overlay tabs centered on the header row */
+@media (min-width: 901px) {
+    .skinHeader .headerTabs {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: auto !important;
+        z-index: 1 !important;
+    }
+}
+
+/* Mobile: tabs in own row, compact */
+@media (max-width: 900px) {
+    .skinHeader .headerTabs {
+        position: relative !important;
+        margin: 0 !important;
+        padding: 0 0 8px !important;
+        width: 100% !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        text-align: center !important;
+    }
+
+    .emby-tab-button {
+        font-size: small !important;
+        padding: 0.4em 0.8em !important;
+    }
+}
+
+/* Fix sticky: parents must not clip overflow */
+body.withSectionTabs .page,
+body.withSectionTabs .page .scrollFrame,
+body.withSectionTabs .page .smoothScrollY {
+    overflow: visible !important;
+}
+
+
+/* ======================== */
+/*   PROGRESS BARS          */
+/* ======================== */
+
+.itemProgressBarForeground {
+    background: linear-gradient(90deg, var(--amber-deep), var(--amber-bright)) !important;
+}
+
+.slider-track-val-marker::after {
+    background-color: var(--amber) !important;
+}
+
+.mdl-slider::-webkit-slider-thumb {
+    background-color: var(--amber) !important;
+}
+
+.mdl-slider::-moz-range-thumb {
+    background-color: var(--amber) !important;
+}
+
+
+/* ======================== */
+/*   INPUTS & FOCUS STATES  */
+/* ======================== */
+
+.emby-input:focus,
+.emby-textarea:focus {
+    border-color: var(--amber) !important;
+    box-shadow: 0 0 0 1px var(--amber) !important;
+}
+
+.emby-select:focus {
+    border-color: var(--amber) !important;
+}
+
+.inputLabel.inputLabelFocused,
+.selectLabelFocused {
+    color: var(--amber) !important;
+}
+
+.emby-checkbox:focus + span + .checkboxOutline {
+    border-color: var(--amber) !important;
+}
+
+
+/* ======================== */
+/*   SCROLLBAR              */
+/* ======================== */
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(22, 22, 22, 0.5);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(60, 60, 60, 0.6);
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--amber) !important;
+}
+
+
+/* ======================== */
+/*   TEXT SELECTION          */
+/* ======================== */
+
+::selection {
+    background-color: rgba(232, 146, 13, 0.35) !important;
+    color: #fff !important;
+}
+
+::-moz-selection {
+    background-color: rgba(232, 146, 13, 0.35) !important;
+    color: #fff !important;
+}
+
+
+/* ======================== */
+/*   INDICATORS & BADGES    */
+/* ======================== */
+
+.countIndicator {
+    background: linear-gradient(135deg, var(--amber-deep), var(--amber)) !important;
+}
+
+.playedIndicator {
+    background: var(--amber) !important;
+}
+
+.indicator {
+    background-color: var(--amber) !important;
+}
+
+
+/* ======================== */
+/*   TOAST NOTIFICATIONS    */
+/* ======================== */
+
+.toast {
+    background-color: var(--amber) !important;
+    color: #000 !important;
+}
+
+
+/* ======================== */
+/*   RATING STARS & TAGS    */
+/* ======================== */
+
+.starIcon,
+.rating-star-icon {
+    color: var(--amber-bright) !important;
+}
+
+
+/* ======================== */
+/*   DRAWER / SIDEBAR       */
+/* ======================== */
+
+.navMenuOption .material-icons {
+    color: rgba(160, 160, 160, 1);
+}
+
+.navMenuOption:hover .material-icons,
+.selectedNavMenuOption .material-icons {
+    color: var(--amber) !important;
+}
+
+.sidebarHeader {
+    color: rgba(140, 140, 140, 0.7) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+/* ======================== */
+/*   HEADER BUTTONS         */
+/* ======================== */
+
+.headerButton:hover {
+    color: var(--amber) !important;
+}
+
+.headerUserButtonRound {
+    border: 2px solid transparent !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    transition: border-color 0.2s ease;
+}
+
+.headerUserButtonRound:hover {
+    border-color: var(--amber) !important;
+}
+
+.headerUserButtonRound img {
+    border-radius: 50% !important;
+    object-fit: cover !important;
+}
+
+
+/* ======================== */
+/*   LOADING SPINNER        */
+/* ======================== */
+
+.mdl-spinner__layer {
+    border-color: var(--amber) !important;
+}
+
+
+/* ======================== */
+/*   DIALOGS / PROMPTS      */
+/* ======================== */
+
+.formDialogHeader {
+    background-color: rgba(24, 24, 24, 0.95) !important;
+    border-bottom: 1px solid rgba(232, 146, 13, 0.2) !important;
+}
+
+.formDialogHeaderTitle {
+    color: var(--amber) !important;
+}
+
+
+/* ======================== */
+/*   LOGO SIZING            */
+/* ======================== */
+
+.pageTitle.pageTitleWithLogo {
+    height: 60px !important;
+    width: 200px !important;
+    min-width: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+}
+
+.imgLogoIcon {
+    max-height: 54px !important;
+    height: 54px !important;
+    width: auto !important;
+    max-width: 250px !important;
+}
+
+.pageTitleWithDefaultLogo {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+}
+
+.splashLogo {
+    max-width: 800px !important;
+    max-height: 300px !important;
+    width: 90vw !important;
+}
+
+
+/* ======================== */
+/*   GLOBAL OVERFLOW FIX    */
+/* ======================== */
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+.skinBody, .mainAnimatedPages {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+img, video, canvas {
+    max-width: 100% !important;
+}
+
+
+/* ================================================ */
+/*   MOBILE & TABLET PERF OPTIMIZATION (< 1200px)  */
+/* ================================================ */
+
+@media (max-width: 1200px), (hover: none), (pointer: coarse) {
+
+    .cardBox {
+        transform: translateZ(0) !important;
+        backface-visibility: hidden !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25) !important;
+        transition: none !important;
+    }
+
+    /* Disable heavy backdrop animations */
+    #reactRoot:not(:has(.skinHeader.semiTransparent)) > .backdropContainer {
+        animation: none !important;
+        will-change: auto !important;
+    }
+
+    #reactRoot:not(:has(.skinHeader.semiTransparent)) > .backdropContainer > .backdropImage {
+        animation: none !important;
+    }
+
+    /* Kill expensive blurs on mobile */
+    .skinHeader:has(.noHomeButtonHeader) .backdropContainer,
+    .skinHeader.noHomeButtonHeader .backdropContainer,
+    .skinHeader.l3xj-pill-active {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* Solid fallback for pill on mobile */
+    body:not(:has(.videoPlayerContainer:not(.hide))):not(:has(.htmlvideoplayer:not(.hide))) .skinHeader.l3xj-pill-active {
+        background: rgba(24, 24, 24, 0.95) !important;
+    }
+
+    /* Sticky tabs: solid fallback */
+    .l3xj-sticky-tabs {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+}
